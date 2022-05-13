@@ -16,22 +16,28 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val url = "http://192.168.191.204/mercaaqui/ListaProductosAll.php"
+        val url = "http://192.168.191.204/mercaaqui/app/Http/ListaProductosAll.php"
         val queue = Volley.newRequestQueue(this)
-        val tvNombre = findViewById<TextView>(R.id.tVnombrep)
-        val tvDescripcion = findViewById<TextView>(R.id.tvDescripcion)
-        //imagen
-        val ivProducto = findViewById<ImageView>(R.id.ivProducto)
+        val pId = findViewById<TextView>(R.id.pId)
+        val iVimagen = findViewById<ImageView>(R.id.iVimagen)
+        val tVnombre = findViewById<TextView>(R.id.tVnombre)
+        val tVtipo = findViewById<TextView>(R.id.tVtipo)
+        val tVprecio = findViewById<TextView>(R.id.tVprecio)
+        val tVcantidad_disponible = findViewById<TextView>(R.id.tVcantidad_disponible)
+
         val stringRequest = StringRequest(Request.Method.GET, url, Response.Listener { response ->
             val jsonArray = JSONArray(response)
                 for (i in 0 until jsonArray.length()){
                     val jsonObject = JSONObject(jsonArray.getString(i))
 
-                    var text = jsonObject.get("nombreP")
-                    tvNombre.text = jsonObject.get("nombreP").toString()
-                    tvDescripcion.text = jsonObject.get("descripcionP").toString()
+                    pId.text = jsonObject.get("id").toString()
+                    tVnombre.text = jsonObject.get("nombre").toString()
+                    tVtipo.text = jsonObject.get("tipo").toString()
+                    tVprecio.text = jsonObject.get("precio").toString()
+                    tVcantidad_disponible.text = jsonObject.get("cantidad_disponible").toString()
 
-                    Glide.with(this).load(jsonObject.get("fotoP").toString()).into(ivProducto)
+
+                    Glide.with(this).load(jsonObject.get("imagen").toString()).into(iVimagen)
                 }
         }, Response.ErrorListener { error ->
 
