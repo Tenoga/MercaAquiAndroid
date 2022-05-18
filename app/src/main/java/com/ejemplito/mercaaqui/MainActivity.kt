@@ -6,48 +6,58 @@ import android.util.Log
 import android.util.Log.INFO
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.widget.Toolbar
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.bumptech.glide.Glide
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import org.json.JSONArray
 import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var appBarConfiguration : AppBarConfiguration
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_products)
 
-        val url = "http://192.168.76.23/mercaaqui/app/Http/ListaProductosAll.php"
-        val queue = Volley.newRequestQueue(this)
-        val pId = findViewById<TextView>(R.id.pId)
-        val iVimagen = findViewById<ImageView>(R.id.iVimagen)
-        val tVnombre = findViewById<TextView>(R.id.tVnombre)
-        val tVtipo = findViewById<TextView>(R.id.tVtipo)
-        val tVprecio = findViewById<TextView>(R.id.tVprecio)
-        val tVcantidad_disponible = findViewById<TextView>(R.id.tVcantidad_disponible)
-        Log.d("onCreate", "Entrando a onCreate")
+        //Toolbar
+        findViewById<Toolbar>(R.id.toolbar).apply {
+            setSupportActionBar(this)
+            supportActionBar?.title = null
+            supportActionBar?.setDisplayShowTitleEnabled(false)
+        }
 
-        val stringRequest = StringRequest(Request.Method.GET, url, { response ->
-            val jsonArray = JSONArray(response)
-            Log.d("json", jsonArray.toString())
-                for (i in 0 until jsonArray.length()){
-                    val jsonObject = JSONObject(jsonArray.getString(i))
+        //Navigation
+        val host: NavHostFragment = supportFragmentManager
+            .findFragmentById(R.id.contenedor) as NavHostFragment? ?: return
 
-                    pId.text = jsonObject.get("id").toString()
-                    tVnombre.text = jsonObject.get("nombre").toString()
-                    tVtipo.text = jsonObject.get("tipo").toString()
-                    tVprecio.text = jsonObject.get("precio").toString()
-                    tVcantidad_disponible.text = jsonObject.get("cantidad_disponible").toString()
+        // Set up Action Bar
+        val navController = host.navController
 
+        appBarConfiguration = AppBarConfiguration(navController.graph)
 
-                    Glide.with(this).load(jsonObject.get("imagen").toString()).into(iVimagen)
-                }
-        }, { error ->
-            Log.w("jsonError", error)
-        })
-        queue.add(stringRequest)
+        setupActionBar(navController, appBarConfiguration)
 
+        setupBottomNavMenu(navController)
+
+    }
+
+    private fun setupBottomNavMenu(navController: NavController) {
+        val bottomNav = findViewById<BottomNavigationView>(R.id.bNMain)
+        bottomNav?.setupWithNavController(navController)
+    }
+
+    private fun setupActionBar(navController: NavController,
+                               appBarConfig : AppBarConfiguration
+    ) {
+        setupActionBarWithNavController(navController, appBarConfig)
     }
 }
