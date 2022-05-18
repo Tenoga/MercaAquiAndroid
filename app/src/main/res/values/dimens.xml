@@ -5,4 +5,6 @@
     <dimen name="elevation_10">10dp</dimen>
     <dimen name="margin_10">10dp</dimen>
     <dimen name="margin_20">20dp</dimen>
+    <dimen name="text_10">10sp</dimen>
+    <dimen name="text_20">20sp</dimen>
 </resources>

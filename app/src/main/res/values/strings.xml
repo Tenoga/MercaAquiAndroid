@@ -5,6 +5,10 @@
     <string name="nombre_producto">Nombre producto</string>
     <string name="descripcion_producto">Descripción producto</string>
     <string name="signo_pesos">$</string>
+    <string name="merca_aqui">Merca Aqui</string>
+    <string name="merca_aqui2">El lugar en donde encontrarás lo que necesites</string>
     <string name="precio_10000">10000</string>
+    <string name="home_productos">Productos Frescos</string>
+    <string name="home1">Nuestros productos siempre son tratados y transportados de la mejor manera mas inocua posible garantizando asi que siempre obtenga un producto fresco directamente traido del campo.</string>
 
 </resources>
