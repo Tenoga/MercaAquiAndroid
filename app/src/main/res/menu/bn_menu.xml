@@ -5,11 +5,15 @@
         android:title="Home"
         android:icon="@drawable/ic_baseline_home_24"/>
     <item
-        android:id="@+id/nProfile"
-        android:title="Profile"
-        android:icon="@drawable/ic_baseline_person_24"/>
+        android:id="@+id/nProducts"
+        android:title="Productos"
+        android:icon="@drawable/ic_baseline_shopping_cart_24"/>
     <item
-        android:id="@+id/nAgenda"
-        android:title="Agenda"
-        android:icon="@drawable/ic_baseline_book_24"/>
+        android:id="@+id/nProfilee"
+        android:title="Productos"
+        android:icon="@drawable/ic_baseline_shopping_cart_24"/>
+    <item
+        android:id="@+id/nProfileee"
+        android:title="Productos"
+        android:icon="@drawable/ic_baseline_shopping_cart_24"/>
 </menu>

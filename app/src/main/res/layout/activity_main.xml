@@ -6,64 +6,66 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:background="@color/azulO"
-                android:orientation="horizontal">
-                 <!--<ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="12dp"
-                    android:src="@drawable/ic_baseline_arrow_back_ios_new_24"/> -->
-                <ImageView
-                    android:layout_width="54dp"
-                    android:layout_height="54dp"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="50dp"
-                    android:src="@drawable/logo"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/naranja"
-                    android:layout_gravity="center"
-                    android:textAlignment="center"
-                    android:textSize="30sp"
-                    android:text="Merca Aqui"/>
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="12dp"
-
-                    android:layout_weight="1"
-                    android:src="@drawable/ic_baseline_person_24"/>
-            </LinearLayout>
-        </LinearLayout>
-    <RelativeLayout
-        android:id="@+id/rLMain"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bNMain"
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            app:menu="@menu/bn_menu">
-        </com.google.android.material.bottomnavigation.BottomNavigationView>
-
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/contenedor"
-            android:name="androidx.navigation.fragment.NavHostFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:defaultNavHost="true"
-            app:navGraph="@navigation/nav_graph" />
-    </RelativeLayout>
+            android:orientation="vertical">
+            <com.google.android.material.appbar.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@color/azulO">
+                <com.google.android.material.appbar.MaterialToolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_width="54dp"
+                        android:layout_height="54dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="50dp"
+                        android:src="@drawable/logo"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/naranja"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
+                        android:textSize="30sp"
+                        android:text="Merca Aqui"/>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="12dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_baseline_person_24"/>
+                </com.google.android.material.appbar.MaterialToolbar>
+            </com.google.android.material.appbar.AppBarLayout>
+            <RelativeLayout
+                android:id="@+id/rLMain"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+                <com.google.android.material.bottomnavigation.BottomNavigationView
+                    android:id="@+id/bNMain"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    app:itemIconSize="@dimen/margin_20"
+                    android:layout_alignParentBottom="true"
+                    app:menu="@menu/bn_menu">
+                </com.google.android.material.bottomnavigation.BottomNavigationView>
+            </RelativeLayout>
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/contenedor"
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:defaultNavHost="true"
+                app:navGraph="@navigation/nav_graph"/>
+        </LinearLayout>
+    </ScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

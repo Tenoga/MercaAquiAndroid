@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:app="http://schemas.android.com/apk/res-auto"
-             android:id="@+id/nav_graph">
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/nHome">
+    <fragment
+        android:id="@+id/nHome"
+        android:name="com.ejemplito.mercaaqui.ui.HomeFragment"
+        tools:layout="@layout/fragment_home"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_nHome_to_productsFragment"
+            app:destination="@id/nProducts" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/nProducts"
+        android:name="com.ejemplito.mercaaqui.ui.ProductsFragment"
+        android:label="fragment_products"
+        tools:layout="@layout/fragment_products" />
 
 </navigation>
