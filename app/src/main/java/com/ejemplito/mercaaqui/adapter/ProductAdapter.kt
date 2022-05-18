@@ -11,7 +11,7 @@ import com.bumptech.glide.Glide
 import com.ejemplito.mercaaqui.R
 import com.ejemplito.mercaaqui.models.Product
 
-class ProductAdapter (private val productsList: List<Product>, private val productsListener: ProductsListener) : RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
+class ProductAdapter(private val productsList: ArrayList<Any>, private val productsListener: ProductsListener) : RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
 
     inner class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
         var nombre: TextView = view.findViewById(R.id.nombreProducto)

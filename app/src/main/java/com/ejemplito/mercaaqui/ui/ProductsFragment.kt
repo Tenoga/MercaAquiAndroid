@@ -6,25 +6,25 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.RelativeLayout
-import android.widget.TextView
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
-import com.bumptech.glide.Glide
 import com.ejemplito.mercaaqui.R
+import com.ejemplito.mercaaqui.Utils.ArrayUtil
+import com.ejemplito.mercaaqui.adapter.ProductAdapter
+import com.ejemplito.mercaaqui.adapter.ProductsListener
+import com.ejemplito.mercaaqui.models.Product
 import org.json.JSONArray
-import org.json.JSONObject
 
-class ProductsFragment : Fragment() {
+class ProductsFragment : Fragment(), ProductsListener {
     private lateinit var recycler: RecyclerView
     private lateinit var viewAlpha:View
     private lateinit var pgbar: ProgressBar
     private lateinit var rlProductsList: RelativeLayout
+    private lateinit var productsList: ArrayList<Any>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,7 +42,7 @@ class ProductsFragment : Fragment() {
 
         val stringRequest = StringRequest(Request.Method.GET, url, { response ->
             val jsonArray = JSONArray(response)
-
+            this.productsList = ArrayUtil().convert(jsonArray)!!
         }, { error ->
             Log.w("jsonError", error)
         })
@@ -51,10 +51,20 @@ class ProductsFragment : Fragment() {
         this.viewAlpha = ll.findViewById(R.id.view_productsList)
         this.pgbar = ll.findViewById(R.id.pgbar_productsList)
         this.rlProductsList = ll.findViewById(R.id.rl_ProductsList)
-        recycler.apply {
-            layoutManager = GridLayoutManager(context, 2)
-        }
+
         return ll;
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        recycler.adapter = ProductAdapter(this.productsList, this)
+        viewAlpha.visibility = View.INVISIBLE
+        pgbar.visibility = View.INVISIBLE
+    }
+
+    override fun onProductClicked(product: Product, position: Int) {
+        TODO("Not yet implemented")
     }
 
 }
