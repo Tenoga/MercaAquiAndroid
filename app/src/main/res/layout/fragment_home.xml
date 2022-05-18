@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Products">
+    tools:context=".ui.HomeFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -53,9 +53,7 @@
                                 android:layout_marginHorizontal="@dimen/margin_10"
                                 android:text="@string/merca_aqui2"/>
                         </LinearLayout>
-
                     </androidx.cardview.widget.CardView>
-
                 </RelativeLayout>
             </LinearLayout>
             <TextView
@@ -96,9 +94,7 @@
                     android:layout_width="200dp"
                     android:layout_height="150dp"
                     android:src="@drawable/quality"/>
-
             </LinearLayout>
-
         </LinearLayout>
     </ScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
