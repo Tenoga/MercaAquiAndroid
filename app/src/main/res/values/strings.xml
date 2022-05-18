@@ -3,7 +3,7 @@
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="nombre_producto">Nombre producto</string>
-    <string name="descripcion_producto">Descripción producto</string>
+    <string name="tipo_producto">Tipo producto</string>
     <string name="signo_pesos">$</string>
     <string name="precio_10000">10000</string>
 
