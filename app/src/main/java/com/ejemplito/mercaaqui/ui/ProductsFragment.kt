@@ -13,18 +13,18 @@ import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.ejemplito.mercaaqui.R
-import com.ejemplito.mercaaqui.Utils.ArrayUtil
 import com.ejemplito.mercaaqui.adapter.ProductAdapter
 import com.ejemplito.mercaaqui.adapter.ProductsListener
 import com.ejemplito.mercaaqui.models.Product
 import org.json.JSONArray
+import org.json.JSONException
 
 class ProductsFragment : Fragment(), ProductsListener {
     private lateinit var recycler: RecyclerView
     private lateinit var viewAlpha:View
     private lateinit var pgbar: ProgressBar
     private lateinit var rlProductsList: RelativeLayout
-    private lateinit var productsList: ArrayList<Any>
+    private lateinit var productsList: ArrayList<Product>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,7 +42,16 @@ class ProductsFragment : Fragment(), ProductsListener {
 
         val stringRequest = StringRequest(Request.Method.GET, url, { response ->
             val jsonArray = JSONArray(response)
-            this.productsList = ArrayUtil().convert(jsonArray)!!
+            this.productsList = ArrayList()
+            try {
+                var i = 0
+                val l = jsonArray.length()
+                while (i < l) {
+                    productsList.add(jsonArray[i] as Product)
+                    i++
+                }
+            } catch (e: JSONException) {
+            }
         }, { error ->
             Log.w("jsonError", error)
         })
