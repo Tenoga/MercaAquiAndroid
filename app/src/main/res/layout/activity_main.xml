@@ -50,14 +50,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
                 <com.google.android.material.bottomnavigation.BottomNavigationView
                     android:id="@+id/bNMain"
                     android:layout_width="match_parent"
                     android:layout_height="42dp"
-                    app:itemIconSize="@dimen/margin_20"
                     android:layout_alignParentBottom="true"
-                    app:menu="@menu/bn_menu">
-                </com.google.android.material.bottomnavigation.BottomNavigationView>
+                    app:itemIconSize="@dimen/margin_20"
+                    app:menu="@menu/bn_menu"/>
             </RelativeLayout>
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/contenedor"
