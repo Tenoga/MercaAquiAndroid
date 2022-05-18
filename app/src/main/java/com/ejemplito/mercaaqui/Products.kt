@@ -5,28 +5,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
+import com.bumptech.glide.Glide
+import org.json.JSONArray
+import org.json.JSONObject
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [Products.newInstance] factory method to
- * create an instance of this fragment.
- */
 class Products : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
     }
 
     override fun onCreateView(
@@ -34,26 +26,36 @@ class Products : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_products, container, false)
+        val ll = inflater.inflate(R.layout.fragment_products, container, false)
+        val url = "http://10.190.80.192/MercaAqui/app/Http/ListaProductosAll.php"
+       val queue = Volley.newRequestQueue(this.context)
+       val pId = ll.findViewById<TextView>(R.id.pId)
+       val iVimagen = ll.findViewById<ImageView>(R.id.iVimagen)
+       val tVnombre = ll.findViewById<TextView>(R.id.tVnombre)
+       val tVtipo = ll.findViewById<TextView>(R.id.tVtipo)
+       val tVprecio = ll.findViewById<TextView>(R.id.tVprecio)
+       val tVcantidadDisponible = ll.findViewById<TextView>(R.id.tVcantidad_disponible)
+
+       val stringRequest = StringRequest(Request.Method.GET, url, { response ->
+           val jsonArray = JSONArray(response)
+           for (i in 0 until jsonArray.length()) {
+               val jsonObject = JSONObject(jsonArray.getString(i))
+
+               pId.text = jsonObject.get("id").toString()
+               tVnombre.text = jsonObject.get("nombre").toString()
+               tVtipo.text = jsonObject.get("tipo").toString()
+               tVprecio.text = jsonObject.get("precio").toString()
+               tVcantidadDisponible.text = jsonObject.get("cantidad_disponible").toString()
+
+
+               Glide.with(this).load(jsonObject.get("imagen").toString()).into(iVimagen)
+           }
+       }, { error ->
+
+       })
+       queue.add(stringRequest)
+        return ll;
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Products.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Products().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
+
 }

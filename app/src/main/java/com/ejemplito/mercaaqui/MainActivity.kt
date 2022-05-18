@@ -2,6 +2,8 @@ package com.ejemplito.mercaaqui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.util.Log.INFO
 import android.widget.ImageView
 import android.widget.TextView
 import com.android.volley.Request
@@ -15,8 +17,9 @@ import org.json.JSONObject
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        val url = "http://192.168.191.204/mercaaqui/app/Http/ListaProductosAll.php"
+        setContentView(R.layout.fragment_products)
+
+        val url = "http://192.168.76.23/mercaaqui/app/Http/ListaProductosAll.php"
         val queue = Volley.newRequestQueue(this)
         val pId = findViewById<TextView>(R.id.pId)
         val iVimagen = findViewById<ImageView>(R.id.iVimagen)
@@ -24,9 +27,11 @@ class MainActivity : AppCompatActivity() {
         val tVtipo = findViewById<TextView>(R.id.tVtipo)
         val tVprecio = findViewById<TextView>(R.id.tVprecio)
         val tVcantidad_disponible = findViewById<TextView>(R.id.tVcantidad_disponible)
+        Log.d("onCreate", "Entrando a onCreate")
 
-        val stringRequest = StringRequest(Request.Method.GET, url, Response.Listener { response ->
+        val stringRequest = StringRequest(Request.Method.GET, url, { response ->
             val jsonArray = JSONArray(response)
+            Log.d("json", jsonArray.toString())
                 for (i in 0 until jsonArray.length()){
                     val jsonObject = JSONObject(jsonArray.getString(i))
 
@@ -39,8 +44,8 @@ class MainActivity : AppCompatActivity() {
 
                     Glide.with(this).load(jsonObject.get("imagen").toString()).into(iVimagen)
                 }
-        }, Response.ErrorListener { error ->
-
+        }, { error ->
+            Log.w("jsonError", error)
         })
         queue.add(stringRequest)
 
