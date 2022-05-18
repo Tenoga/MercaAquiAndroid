@@ -1,4 +1,4 @@
-package com.ejemplito.mercaaqui
+package com.ejemplito.mercaaqui.Utils
 
 import org.json.JSONArray
 
