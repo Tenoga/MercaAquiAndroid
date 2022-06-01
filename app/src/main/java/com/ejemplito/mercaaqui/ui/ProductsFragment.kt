@@ -37,7 +37,7 @@ class ProductsFragment : Fragment(), ProductsListener {
     ): View? {
         // Inflate the layout for this fragment
         val ll = inflater.inflate(R.layout.fragment_products, container, false)
-        val url = "http://10.190.80.192/MercaAqui/app/Http/ListaProductosAll.php"
+        /*val url = "http://10.190.80.192/MercaAqui/app/Http/ListaProductosAll.php"
         val queue = Volley.newRequestQueue(this.context)
 
         val stringRequest = StringRequest(Request.Method.GET, url, { response ->
@@ -60,16 +60,16 @@ class ProductsFragment : Fragment(), ProductsListener {
         this.viewAlpha = ll.findViewById(R.id.view_productsList)
         this.pgbar = ll.findViewById(R.id.pgbar_productsList)
         this.rlProductsList = ll.findViewById(R.id.rl_ProductsList)
-
+*/
         return ll;
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+/*
         recycler.adapter = ProductAdapter(this.productsList, this)
         viewAlpha.visibility = View.INVISIBLE
-        pgbar.visibility = View.INVISIBLE
+        pgbar.visibility = View.INVISIBLE*/
     }
 
     override fun onProductClicked(product: Product, position: Int) {

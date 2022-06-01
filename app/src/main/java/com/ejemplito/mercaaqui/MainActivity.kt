@@ -29,14 +29,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.fragment_products)
 
         //Toolbar
-        findViewById<Toolbar>(R.id.toolbar).apply {
+        /*findViewById<Toolbar>(R.id.toolbar).apply {
             setSupportActionBar(this)
             supportActionBar?.title = null
             supportActionBar?.setDisplayShowTitleEnabled(false)
-        }
+        }*/
 
         //Navigation
-        /*val host: NavHostFragment = supportFragmentManager
+        val host: NavHostFragment = supportFragmentManager
             .findFragmentById(R.id.contenedor) as NavHostFragment? ?: return
 
         // Set up Action Bar
@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
 
         setupActionBar(navController, appBarConfiguration)
 
-        setupBottomNavMenu(navController)*/
+        setupBottomNavMenu(navController)
 
     }
 
