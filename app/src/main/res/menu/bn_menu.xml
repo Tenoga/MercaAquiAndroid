@@ -9,11 +9,11 @@
         android:title="Productos"
         android:icon="@drawable/ic_baseline_shopping_cart_24"/>
     <item
-        android:id="@+id/nProfilee"
+        android:id="@+id/nVentas"
         android:title="Productos"
         android:icon="@drawable/ic_baseline_shopping_cart_24"/>
     <item
-        android:id="@+id/nProfileee"
+        android:id="@+id/nVendedores"
         android:title="Productos"
         android:icon="@drawable/ic_baseline_shopping_cart_24"/>
 </menu>
