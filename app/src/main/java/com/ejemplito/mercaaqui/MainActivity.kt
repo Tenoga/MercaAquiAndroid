@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -48,6 +49,19 @@ class MainActivity : AppCompatActivity() {
 
         setupBottomNavMenu(navController)
 
+        setupBottomNavMenu(navController)
+        /*val bottomNavigationView: BottomNavigationView = findViewById(R.id.bNMain)
+        val navController = findNavController(R.id.contenedor)
+        val appBarConfig = AppBarConfiguration(
+            setOf(
+                R.id.nHome,
+                R.id.nProducts,
+                R.id.nVentas,
+                R.id.nVendedores
+            )
+        )
+        setupActionBarWithNavController(navController, appBarConfig)
+        bottomNavigationView.setupWithNavController(navController)*/
     }
 
     private fun setupBottomNavMenu(navController: NavController) {
