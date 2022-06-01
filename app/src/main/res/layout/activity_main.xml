@@ -45,20 +45,7 @@
                         android:src="@drawable/ic_baseline_person_24"/>
                 </com.google.android.material.appbar.MaterialToolbar>
             </com.google.android.material.appbar.AppBarLayout>
-            <RelativeLayout
-                android:id="@+id/rLMain"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
-                <com.google.android.material.bottomnavigation.BottomNavigationView
-                    android:id="@+id/bNMain"
-                    android:layout_width="match_parent"
-                    android:layout_height="42dp"
-                    android:layout_alignParentBottom="true"
-                    app:itemIconSize="@dimen/margin_20"
-                    app:menu="@menu/bn_menu"/>
-            </RelativeLayout>
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/contenedor"
                 android:name="androidx.navigation.fragment.NavHostFragment"
@@ -67,5 +54,23 @@
                 app:defaultNavHost="true"
                 app:navGraph="@navigation/nav_graph"/>
         </LinearLayout>
+
     </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/rLMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bNMain"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            app:itemIconSize="@dimen/margin_20"
+            app:menu="@menu/bn_menu"/>
+    </RelativeLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
