@@ -29,6 +29,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_products)
 
+        Log.d("MainActivity", "Entered to onCreate")
+
         //Toolbar
         /*findViewById<Toolbar>(R.id.toolbar).apply {
             setSupportActionBar(this)
