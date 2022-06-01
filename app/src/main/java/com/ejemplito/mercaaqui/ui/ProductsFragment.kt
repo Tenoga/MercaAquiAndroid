@@ -18,6 +18,7 @@ import com.ejemplito.mercaaqui.adapter.ProductsListener
 import com.ejemplito.mercaaqui.models.Product
 import org.json.JSONArray
 import org.json.JSONException
+import org.json.JSONObject
 
 class ProductsFragment : Fragment(), ProductsListener {
     private lateinit var recycler: RecyclerView
@@ -35,9 +36,10 @@ class ProductsFragment : Fragment(), ProductsListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        Log.d("ProductsFragment", "Entered to onCreateView")
         // Inflate the layout for this fragment
         val ll = inflater.inflate(R.layout.fragment_products, container, false)
-        val url = "http://10.190.80.192/MercaAqui/app/Http/ListaProductosAll.php"
+        /*val url = "http://10.190.80.192/MercaAqui/app/Http/ListaProductosAll.php"
         val queue = Volley.newRequestQueue(this.context)
 
         val stringRequest = StringRequest(Request.Method.GET, url, { response ->
@@ -59,20 +61,20 @@ class ProductsFragment : Fragment(), ProductsListener {
         this.recycler = ll.findViewById(R.id.products_recycler)
         this.viewAlpha = ll.findViewById(R.id.view_productsList)
         this.pgbar = ll.findViewById(R.id.pgbar_productsList)
-        this.rlProductsList = ll.findViewById(R.id.rl_ProductsList)
+        this.rlProductsList = ll.findViewById(R.id.rl_ProductsList)*/
 
-        return ll;
+        return ll
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Log.d("ProductFragment", this.productsList.toString())
-        recycler.adapter = ProductAdapter(this.productsList, this)
+        /*recycler.adapter = ProductAdapter(this.productsList, this)
         viewAlpha.visibility = View.INVISIBLE
-        pgbar.visibility = View.INVISIBLE
+        pgbar.visibility = View.INVISIBLE*/
     }
 
-    override fun onProductClicked(product: Product, position: Int) {
+    override fun onProductClicked(product: JSONObject, position: Int) {
         TODO("Not yet implemented")
     }
 

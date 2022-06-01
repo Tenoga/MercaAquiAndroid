@@ -10,8 +10,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.ejemplito.mercaaqui.R
 import com.ejemplito.mercaaqui.models.Product
+import org.json.JSONObject
 
-class ProductAdapter(private val productsList: ArrayList<Product>, private val productsListener: ProductsListener) : RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
+class ProductAdapter(private val productsList: ArrayList<JSONObject>, private val productsListener: ProductsListener) : RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
 
     inner class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
         var nombre: TextView = view.findViewById(R.id.nombreProducto)
@@ -19,10 +20,10 @@ class ProductAdapter(private val productsList: ArrayList<Product>, private val p
         var precio: TextView = view.findViewById(R.id.precioProducto)
         var imagen: ImageView = view.findViewById(R.id.imagenProducto)
 
-        fun bind(product: Product) {
-            nombre.text = product.nombre
-            tipo.text = product.tipo
-            precio.text = product.precio.toString()
+        fun bind(product: JSONObject) {
+            nombre.text = product.getString("nombre")
+            tipo.text = product.getString("tipo")
+            precio.text = product.getString("precio")
         }
     }
 
@@ -38,7 +39,7 @@ class ProductAdapter(private val productsList: ArrayList<Product>, private val p
                 val product = productsList[position]
         try {
             Glide.with(holder.itemView.context)
-                .load(product.imagen)
+                .load(product.get("imagen"))
                 .into(holder.imagen)
             holder.bind(product)
 
