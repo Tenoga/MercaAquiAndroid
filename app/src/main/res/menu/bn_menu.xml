@@ -10,10 +10,10 @@
         android:icon="@drawable/ic_baseline_shopping_cart_24"/>
     <item
         android:id="@+id/nVentas"
-        android:title="Productos"
-        android:icon="@drawable/ic_baseline_shopping_cart_24"/>
+        android:title="Ventas"
+        android:icon="@drawable/ic_baseline_ballot_24"/>
     <item
         android:id="@+id/nVendedores"
-        android:title="Productos"
-        android:icon="@drawable/ic_baseline_shopping_cart_24"/>
+        android:title="Vendedores"
+        android:icon="@drawable/ic_baseline_person_24"/>
 </menu>

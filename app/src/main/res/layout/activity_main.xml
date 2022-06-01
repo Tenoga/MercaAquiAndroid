@@ -55,7 +55,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:defaultNavHost="true"
-                app:navGraph="@navigation/nav_graph"/>
+                app:navGraph="@navigation/nav_graph" />
         </LinearLayout>
 
     </ScrollView>
@@ -63,7 +63,7 @@
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bNMain"
             android:layout_width="match_parent"
-            android:layout_height="42dp"
+            android:layout_height="50dp"
             android:layout_alignParentBottom="true"
             android:layout_gravity="bottom"
             app:itemIconSize="@dimen/margin_20"
