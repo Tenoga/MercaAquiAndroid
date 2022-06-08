@@ -25,7 +25,7 @@ class ProductsFragment : Fragment(), ProductsListener {
     private lateinit var viewAlpha:View
     private lateinit var pgbar: ProgressBar
     private lateinit var rlProductsList: RelativeLayout
-    private lateinit var productsList: ArrayList<Product>
+    private lateinit var productsList: ArrayList<JSONObject>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +39,7 @@ class ProductsFragment : Fragment(), ProductsListener {
         Log.d("ProductsFragment", "Entered to onCreateView")
         // Inflate the layout for this fragment
         val ll = inflater.inflate(R.layout.fragment_products, container, false)
-        /*val url = "http://10.190.80.192/MercaAqui/app/Http/ListaProductosAll.php"
+        val url = "http://192.168.32.103/MercaAqui/app/Http/ListaProductosAll.php"
         val queue = Volley.newRequestQueue(this.context)
 
         val stringRequest = StringRequest(Request.Method.GET, url, { response ->
@@ -49,9 +49,14 @@ class ProductsFragment : Fragment(), ProductsListener {
                 var i = 0
                 val l = jsonArray.length()
                 while (i < l) {
-                    productsList.add(jsonArray[i] as Product)
+                    productsList.add(jsonArray[i] as JSONObject)
                     i++
                 }
+                Log.d("ProductFragment", this.productsList.toString())
+                this.recycler.adapter = ProductAdapter(this.productsList, this)
+                this.viewAlpha.visibility = View.INVISIBLE
+                this.pgbar.visibility = View.INVISIBLE
+
             } catch (e: JSONException) {
             }
         }, { error ->
@@ -61,15 +66,15 @@ class ProductsFragment : Fragment(), ProductsListener {
         this.recycler = ll.findViewById(R.id.products_recycler)
         this.viewAlpha = ll.findViewById(R.id.view_productsList)
         this.pgbar = ll.findViewById(R.id.pgbar_productsList)
-        this.rlProductsList = ll.findViewById(R.id.rl_ProductsList)*/
+        this.rlProductsList = ll.findViewById(R.id.rl_ProductsList)
 
         return ll
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Log.d("ProductFragment", this.productsList.toString())
-        /*recycler.adapter = ProductAdapter(this.productsList, this)
+        /*Log.d("ProductFragment", this.productsList.toString())
+        recycler.adapter = ProductAdapter(this.productsList, this)
         viewAlpha.visibility = View.INVISIBLE
         pgbar.visibility = View.INVISIBLE*/
     }
