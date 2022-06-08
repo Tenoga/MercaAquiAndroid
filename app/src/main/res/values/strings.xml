@@ -12,6 +12,7 @@
     <string name="nombre_cliente">David Felipe</string>
     <string name="telefono_vendedor">3154254875</string>
     <string name="fecha_venta">Mayo 5 2022, 10:39</string>
+    <string name="informacion_vendedor">Información del Usuario No.</string>
 
     <string name="merca_aqui">Merca Aqui</string>
     <string name="merca_aqui2">El lugar en donde encontrarás lo que necesites</string>
