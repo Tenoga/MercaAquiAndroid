@@ -26,11 +26,6 @@ class ProductsFragment : Fragment(), ItemListener {
     private lateinit var rlProductsList: RelativeLayout
     private lateinit var productsList: ArrayList<JSONObject>
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -38,7 +33,7 @@ class ProductsFragment : Fragment(), ItemListener {
         Log.d("ProductsFragment", "Entered to onCreateView")
         // Inflate the layout for this fragment
         val ll = inflater.inflate(R.layout.fragment_products, container, false)
-        val url = "http://192.168.32.103/MercaAqui/app/Http/ListaProductosAll.php"
+        val url = "http://10.190.80.196/MercaAqui/app/Http/ListaProductosAll.php"
         val queue = Volley.newRequestQueue(this.context)
 
         val stringRequest = StringRequest(Request.Method.GET, url, { response ->

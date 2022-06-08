@@ -28,6 +28,15 @@
         android:id="@+id/nVendedores"
         android:name="com.ejemplito.mercaaqui.ui.VendedoresFragment"
         android:label="fragment_vendedores"
-        tools:layout="@layout/fragment_vendedores" />
+        tools:layout="@layout/fragment_vendedores" >
+        <action
+            android:id="@+id/action_nVendedores_to_ventasFragment"
+            app:destination="@id/nVentas" />
+    </fragment>
+    <fragment
+        android:id="@+id/nVentas"
+        android:name="com.ejemplito.mercaaqui.ui.VentasFragment"
+        android:label="fragment_ventas"
+        tools:layout="@layout/fragment_ventas" />
 
 </navigation>
