@@ -9,10 +9,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.ejemplito.mercaaqui.R
-import com.ejemplito.mercaaqui.models.Product
 import org.json.JSONObject
 
-class ProductAdapter(private val productsList: ArrayList<JSONObject>, private val productsListener: ProductsListener) : RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
+class ProductAdapter(private val productsList: ArrayList<JSONObject>, private val itemListener: ItemListener) : RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
 
     inner class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
         var nombre: TextView = view.findViewById(R.id.nombreProducto)
@@ -44,7 +43,7 @@ class ProductAdapter(private val productsList: ArrayList<JSONObject>, private va
             holder.bind(product)
 
             holder.itemView.setOnClickListener{
-                productsListener.onProductClicked(product, position)
+                itemListener.onItemClicked(product, position)
             }
 
         }catch (e: Exception){

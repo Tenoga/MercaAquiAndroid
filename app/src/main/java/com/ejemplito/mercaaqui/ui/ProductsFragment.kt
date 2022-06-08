@@ -14,13 +14,12 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.ejemplito.mercaaqui.R
 import com.ejemplito.mercaaqui.adapter.ProductAdapter
-import com.ejemplito.mercaaqui.adapter.ProductsListener
-import com.ejemplito.mercaaqui.models.Product
+import com.ejemplito.mercaaqui.adapter.ItemListener
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
 
-class ProductsFragment : Fragment(), ProductsListener {
+class ProductsFragment : Fragment(), ItemListener {
     private lateinit var recycler: RecyclerView
     private lateinit var viewAlpha:View
     private lateinit var pgbar: ProgressBar
@@ -79,7 +78,7 @@ class ProductsFragment : Fragment(), ProductsListener {
         pgbar.visibility = View.INVISIBLE*/
     }
 
-    override fun onProductClicked(product: JSONObject, position: Int) {
+    override fun onItemClicked(product: JSONObject, position: Int) {
         TODO("Not yet implemented")
     }
 
