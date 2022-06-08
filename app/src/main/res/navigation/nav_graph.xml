@@ -19,6 +19,15 @@
         android:id="@+id/nProducts"
         android:name="com.ejemplito.mercaaqui.ui.ProductsFragment"
         android:label="fragment_products"
-        tools:layout="@layout/fragment_products" />
+        tools:layout="@layout/fragment_products" >
+        <action
+            android:id="@+id/action_nProducts_to_vendedoresFragment"
+            app:destination="@id/nVendedores" />
+    </fragment>
+    <fragment
+        android:id="@+id/nVendedores"
+        android:name="com.ejemplito.mercaaqui.ui.VendedoresFragment"
+        android:label="fragment_vendedores"
+        tools:layout="@layout/fragment_vendedores" />
 
 </navigation>
