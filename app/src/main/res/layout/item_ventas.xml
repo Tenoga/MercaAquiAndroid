@@ -50,7 +50,7 @@
                         android:id="@+id/nombreUsuario"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingStart="@dimen/tiny_padding"
+                        android:layout_marginStart="@dimen/tiny_padding"
                         android:text="@string/nombre_cliente"
                         android:textStyle="bold"
                         android:textSize="15sp"/>
@@ -86,7 +86,7 @@
                         android:text="@string/signo_pesos"
                         android:textSize="13sp" />
                     <TextView
-                        android:id="@+id/ventaTortal"
+                        android:id="@+id/ventaTotal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="40000"
