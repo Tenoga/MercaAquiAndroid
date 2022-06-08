@@ -13,46 +13,41 @@ import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.ejemplito.mercaaqui.R
-import com.ejemplito.mercaaqui.adapter.ProductAdapter
 import com.ejemplito.mercaaqui.adapter.ItemListener
+import com.ejemplito.mercaaqui.adapter.VendedorAdapter
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
 
-class ProductsFragment : Fragment(), ItemListener {
+class VendedoresFragment : Fragment(), ItemListener {
     private lateinit var recycler: RecyclerView
     private lateinit var viewAlpha:View
     private lateinit var pgbar: ProgressBar
-    private lateinit var rlProductsList: RelativeLayout
-    private lateinit var productsList: ArrayList<JSONObject>
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
+    private lateinit var rlVendedoresList: RelativeLayout
+    private lateinit var vendedoresList: ArrayList<JSONObject>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        Log.d("ProductsFragment", "Entered to onCreateView")
+        Log.d("VendedoresFragment", "Entered to onCreateView")
         // Inflate the layout for this fragment
-        val ll = inflater.inflate(R.layout.fragment_products, container, false)
-        val url = "http://192.168.32.103/MercaAqui/app/Http/ListaProductosAll.php"
+        val ll = inflater.inflate(R.layout.fragment_vendedores, container, false)
+        val url = "http://192.168.32.103/MercaAqui/app/Http/ListaVendedoresAll.php"
         val queue = Volley.newRequestQueue(this.context)
 
         val stringRequest = StringRequest(Request.Method.GET, url, { response ->
             val jsonArray = JSONArray(response)
-            this.productsList = ArrayList()
+            this.vendedoresList = ArrayList()
             try {
                 var i = 0
                 val l = jsonArray.length()
                 while (i < l) {
-                    productsList.add(jsonArray[i] as JSONObject)
+                    vendedoresList.add(jsonArray[i] as JSONObject)
                     i++
                 }
-                Log.d("ProductFragment", this.productsList.toString())
-                this.recycler.adapter = ProductAdapter(this.productsList, this)
+                Log.d("VendedoresFragment", this.vendedoresList.toString())
+                this.recycler.adapter = VendedorAdapter(this.vendedoresList, this)
                 this.viewAlpha.visibility = View.INVISIBLE
                 this.pgbar.visibility = View.INVISIBLE
 
@@ -62,20 +57,12 @@ class ProductsFragment : Fragment(), ItemListener {
             Log.w("jsonError", error)
         })
         queue.add(stringRequest)
-        this.recycler = ll.findViewById(R.id.products_recycler)
-        this.viewAlpha = ll.findViewById(R.id.view_productsList)
-        this.pgbar = ll.findViewById(R.id.pgbar_productsList)
-        this.rlProductsList = ll.findViewById(R.id.rl_ProductsList)
+        this.recycler = ll.findViewById(R.id.vendedores_recycler)
+        this.viewAlpha = ll.findViewById(R.id.view_vendedoresList)
+        this.pgbar = ll.findViewById(R.id.pgbar_vendedoresList)
+        this.rlVendedoresList = ll.findViewById(R.id.rl_vendedoresList)
 
         return ll
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        /*Log.d("ProductFragment", this.productsList.toString())
-        recycler.adapter = ProductAdapter(this.productsList, this)
-        viewAlpha.visibility = View.INVISIBLE
-        pgbar.visibility = View.INVISIBLE*/
     }
 
     override fun onItemClicked(product: JSONObject, position: Int) {
