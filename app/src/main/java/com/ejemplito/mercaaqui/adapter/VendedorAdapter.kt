@@ -12,14 +12,14 @@ class VendedorAdapter (private val vendedoresList: ArrayList<JSONObject>, privat
 
     inner class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
         var nombre: TextView = view.findViewById(R.id.nombreVendedor)
-        //var apellido: TextView = view.findViewById(R.id.apellidoVendedor)
+        var apellido: TextView = view.findViewById(R.id.apellidoVendedor)
         var email: TextView = view.findViewById(R.id.emailVendedor)
         //var celular: TextView = view.findViewById(R.id.precioProducto)
         //var fecha_nacimiento: TextView = view.findViewById(R.id.precioProducto)
 
         fun bind(product: JSONObject) {
             nombre.text = product.getString("nombre")
-            //apellido.text = product.getString("apellido")
+            apellido.text = product.getString("apellido")
             email.text = product.getString("email")
             //celular.text = product.getString("precio")
             //fecha_nacimiento.text = product.getString("precio")

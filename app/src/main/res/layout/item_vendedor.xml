@@ -44,6 +44,14 @@
                     android:text="@string/nombre_vendedor"
                     android:textStyle="bold"
                     android:textSize="15sp"/>
+                <TextView
+                    android:id="@+id/apellidoVendedor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/tiny_padding"
+                    android:text="@string/apellido_vendedor"
+                    android:textStyle="bold"
+                    android:textSize="15sp"/>
             </LinearLayout>
             <TextView
                 android:id="@+id/emailVendedor"
