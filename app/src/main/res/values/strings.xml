@@ -6,6 +6,9 @@
 
     <string name="nombre_producto">Nombre producto</string>
     <string name="tipo_producto">Tipo producto</string>
+    <string name="precio_producto">Precio producto</string>
+    <string name="cantidad_disponible">Cantidad Disponible</string>
+    <string name="informacion_producto">Información del Producto No.</string>
     <string name="signo_pesos">$</string>
 
     <string name="titulo_venta">Cliente:</string>
