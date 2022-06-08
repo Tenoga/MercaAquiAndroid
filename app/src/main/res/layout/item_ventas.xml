@@ -50,7 +50,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingStart="@dimen/tiny_padding"
-                        android:text="@string/titulo_venta"
+                        android:text="@string/nombre_cliente"
                         android:textStyle="bold"
                         android:textSize="15sp"/>
                 </LinearLayout>

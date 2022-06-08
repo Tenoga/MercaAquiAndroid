@@ -8,7 +8,7 @@
     <string name="tipo_producto">Tipo producto</string>
     <string name="signo_pesos">$</string>
 
-    <string name="titulo_venta">Cliente: </string>
+    <string name="titulo_venta">Cliente:</string>
     <string name="nombre_cliente">David Felipe</string>
     <string name="fecha_venta">Mayo 5 2022, 10:39</string>
 
