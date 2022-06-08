@@ -17,12 +17,14 @@ class VentasAdapter(private val ventasList: ArrayList<JSONObject>, private val i
         var fecha_venta: TextView = view.findViewById(R.id.fechaVenta)
         //var vendedor_id: TextView = view.findViewById(R.id.vendedor_id)
         //var nombre_vendedor: TextView = view.findViewById(R.id.nombre_vendedor)
-        //var nombre_cliente: TextView = view.findViewById(R.id.nombre_cliente)
+        var nombre_cliente: TextView = view.findViewById(R.id.nombreUsuario)
+        var total: TextView = view.findViewById(R.id.ventaTotal)
 
         fun bind(product: JSONObject) {
             fecha_venta.text = product.getString("fecha_venta")
             //vendedor_id.text = product.getString("fecha_venta")
-            //nombre_cliente.text = product.getString("nombre_cliente")
+            nombre_cliente.text = product.getString("nombre_cliente")
+            total.text = product.getString("total")
         }
     }
 
