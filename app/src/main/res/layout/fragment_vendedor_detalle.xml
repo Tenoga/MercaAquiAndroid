@@ -3,64 +3,109 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="@drawable/shape_vendedor"
-        android:layout_marginVertical="@dimen/margin_10"
-        android:layout_marginHorizontal="@dimen/margin_20"
-        android:padding="@dimen/padding_items">
+        android:layout_marginVertical="@dimen/margin_20"
+        android:layout_marginHorizontal="@dimen/margin_20">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_vendedor2"
+            android:orientation="vertical">
             <ImageView
                 android:layout_width="64dp"
                 android:layout_height="64dp"
-                android:src="@drawable/ic_baseline_person_24"
+                android:src="@drawable/ic_baseline_dark_person_24"
                 android:layout_marginTop="@dimen/margin_20"
                 android:layout_gravity="center"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin_10"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/nombreVendedor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:text="@string/nombre_vendedor"
+                    android:textSize="15sp"/>
+                <TextView
+                    android:id="@+id/apellidoVendedor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:paddingLeft="@dimen/tiny_padding"
+                    android:text="@string/apellido_vendedor"
+                    android:textSize="15sp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_10"
+                android:layout_gravity="center">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Vendedor"/>
+            </LinearLayout>
+        </LinearLayout>
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:layout_marginTop="@dimen/margin_10"
+            android:layout_marginHorizontal="@dimen/margin_20"
             android:orientation="horizontal">
             <TextView
-                android:id="@+id/nombreVendedor"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="@string/nombre_vendedor"
-                android:textSize="15sp"/>
+                android:text="@string/informacion_vendedor"
+                android:textColor="@color/gray"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
             <TextView
-                android:id="@+id/apellidoVendedor"
-                android:layout_width="match_parent"
+                android:id="@+id/id_vendedor"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/tiny_padding"
+                android:text="1"
+                android:textSize="15dp"
                 android:textStyle="bold"
-                android:paddingLeft="@dimen/tiny_padding"
-                android:text="@string/apellido_vendedor"
-                android:textSize="15sp"/>
+                android:textColor="@color/gray"
+                />
         </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_marginHorizontal="@dimen/margin_20"
+            android:layout_height="1dp"
+            android:background="@color/gray"
+            android:layout_marginTop="@dimen/margin_10"/>
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_10"
-            android:layout_gravity="center">
-                <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Vendedor"/>
-        </LinearLayout>
+            android:padding="20dp"
+            android:layout_marginBottom="@dimen/margin_20"
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Correo: "
+                android:textColor="@color/gray"
+                android:text="Correo:"
                 android:textStyle="bold"/>
             <TextView
                 android:id="@+id/correoVendedor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/margin_10"
+                android:layout_marginLeft="@dimen/margin_10"
                 android:text="@string/correo_vendedor"
                 android:textSize="15sp"/>
 
@@ -69,11 +114,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Celular: "
+                android:textColor="@color/gray"
                 android:textStyle="bold"/>
             <TextView
                 android:id="@+id/celularVendedor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/margin_10"
+                android:layout_marginLeft="@dimen/margin_10"
                 android:text="@string/telefono_vendedor"
                 android:textSize="15sp"/>
 
@@ -81,13 +129,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Fecha de Nacimiento: "
+                android:textColor="@color/gray"
                 android:textStyle="bold"/>
             <TextView
                 android:id="@+id/nacimientoVendedor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/margin_10"
+                android:layout_marginLeft="@dimen/margin_10"
                 android:text="@string/fecha_venta"
                 android:textSize="15sp"/>
+        </LinearLayout>
+
+
 
     </LinearLayout>
 
