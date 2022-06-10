@@ -3,22 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Pipe/AndroidStudioProjects/MercaAqui/app/src/main/res/drawable/shape_vendedor.xml" value="0.3675" />
-        <entry key="..\:/Users/Pipe/AndroidStudioProjects/MercaAqui/app/src/main/res/drawable/shape_vendedor2.xml" value="0.3665" />
-        <entry key="..\:/Users/Pipe/AndroidStudioProjects/MercaAqui/app/src/main/res/drawable/shape_vendedor3.xml" value="0.3665" />
         <entry key="..\:/Users/Pipe/AndroidStudioProjects/MercaAqui/app/src/main/res/layout/activity_main.xml" value="0.35260416666666666" />
-        <entry key="..\:/Users/Pipe/AndroidStudioProjects/MercaAqui/app/src/main/res/layout/fragment_producto_detalle.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Pipe/AndroidStudioProjects/MercaAqui/app/src/main/res/layout/fragment_products.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Pipe/AndroidStudioProjects/MercaAqui/app/src/main/res/layout/fragment_vendedor_detalle.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Pipe/AndroidStudioProjects/MercaAqui/app/src/main/res/layout/fragment_vendedores.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Pipe/AndroidStudioProjects/MercaAqui/app/src/main/res/layout/item_product.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Pipe/AndroidStudioProjects/MercaAqui/app/src/main/res/layout/item_vendedor.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Pipe/AndroidStudioProjects/MercaAqui/app/src/main/res/layout/item_ventas.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/SENA/AndroidStudio/MercaAquiAndroid/app/src/main/res/drawable/ic_baseline_shopping_cart_24.xml" value="0.3675" />
         <entry key="..\:/Users/SENA/AndroidStudio/MercaAquiAndroid/app/src/main/res/drawable/shape_vendedor.xml" value="0.3675" />
         <entry key="..\:/Users/SENA/AndroidStudio/MercaAquiAndroid/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/SENA/AndroidStudio/MercaAquiAndroid/app/src/main/res/layout/fragment_bn_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/SENA/AndroidStudio/MercaAquiAndroid/app/src/main/res/layout/fragment_home.xml" value="0.33" />
+        <entry key="..\:/Users/SENA/AndroidStudio/MercaAquiAndroid/app/src/main/res/layout/fragment_producto_detalle.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/SENA/AndroidStudio/MercaAquiAndroid/app/src/main/res/layout/fragment_products.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/SENA/AndroidStudio/MercaAquiAndroid/app/src/main/res/layout/fragment_vendedor_detalle.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/SENA/AndroidStudio/MercaAquiAndroid/app/src/main/res/layout/fragment_vendedores.xml" value="0.36666666666666664" />
