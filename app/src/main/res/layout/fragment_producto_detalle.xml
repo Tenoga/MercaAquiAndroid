@@ -1,19 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:paddingVertical="40dp"
+    android:paddingHorizontal="30dp">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Toolbar
+            android:id="@+id/tbProductDets"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_45" >
+        </Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@drawable/shape_vendedor"
-        android:layout_marginVertical="@dimen/margin_20"
-        android:layout_marginHorizontal="@dimen/margin_20">
+        android:layout_marginTop="@dimen/margin_40"
+        android:background="@color/white">
 
         <ImageView
+            android:id="@+id/imagenProductoDetail"
             android:layout_width="294dp"
             android:layout_height="174dp"
             android:src="@drawable/producto"
@@ -38,7 +49,7 @@
                     android:textSize="15sp"
                     android:textStyle="bold"/>
                 <TextView
-                    android:id="@+id/id_vendedor"
+                    android:id="@+id/id_productoDetails"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/tiny_padding"
@@ -66,14 +77,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/gray"
-                    android:text="Nombre del Producto:"
+                    android:text="@string/nombre_del_producto"
                     android:textStyle="bold"/>
                 <TextView
-                    android:id="@+id/nombreProducto"
+                    android:id="@+id/nombreProductoDetail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="@dimen/margin_10"
-                    android:layout_marginLeft="@dimen/margin_10"
+                    android:layout_marginStart="@dimen/margin_10"
                     android:text="@string/nombre_producto"
                     android:textSize="15sp"/>
 
@@ -81,41 +92,41 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tipo: "
+                    android:text="@string/tipo"
                     android:textColor="@color/gray"
                     android:textStyle="bold"/>
                 <TextView
-                    android:id="@+id/tipoProducto"
+                    android:id="@+id/tipoProductoDetail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="@dimen/margin_10"
-                    android:layout_marginLeft="@dimen/margin_10"
+                    android:layout_marginStart="@dimen/margin_10"
                     android:text="@string/tipo_producto"
                     android:textSize="15sp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Precio: "
+                    android:text="@string/precio"
                     android:textColor="@color/gray"
                     android:textStyle="bold"/>
                 <TextView
-                    android:id="@+id/precioProducto"
+                    android:id="@+id/precioProductoDetail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="@dimen/margin_10"
-                    android:layout_marginLeft="@dimen/margin_10"
+                    android:layout_marginStart="@dimen/margin_10"
                     android:text="@string/precio_producto"
                     android:textSize="15sp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Cantidad Disponible: "
+                    android:text="@string/cantidad_disponible_dos_puntos"
                     android:textColor="@color/gray"
                     android:textStyle="bold"/>
                 <TextView
-                    android:id="@+id/cantidadDisponible"
+                    android:id="@+id/cantidadDisponibleDetails"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="@dimen/margin_10"
@@ -127,4 +138,4 @@
         </LinearLayout>
 
 
-</androidx.cardview.widget.CardView>
+</FrameLayout>

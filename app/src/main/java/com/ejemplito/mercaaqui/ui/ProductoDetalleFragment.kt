@@ -1,33 +1,31 @@
 package com.ejemplito.mercaaqui.ui
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toolbar
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.DialogFragment
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.ejemplito.mercaaqui.R
+import org.json.JSONObject
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [ProductoDetalleFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class ProductoDetalleFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class ProductoDetalleFragment : DialogFragment() {
+    private lateinit var tbProductDets : Toolbar
+    private lateinit var id_productoDetails : TextView
+    private lateinit var nombreProductoDetail : TextView
+    private lateinit var tipoProductoDetail : TextView
+    private lateinit var cantidadDisponibleDetails : TextView
+    private lateinit var precioProductDetails : TextView
+    private lateinit var imagenProductDetail : ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+        setStyle(STYLE_NORMAL, R.style.FullScreenDialogStyle)
     }
 
     override fun onCreateView(
@@ -35,26 +33,44 @@ class ProductoDetalleFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_producto_detalle, container, false)
+        val ll = inflater.inflate(R.layout.fragment_producto_detalle, container, false)
+        this.tbProductDets = ll.findViewById(R.id.tbProductDets)
+
+
+        this.id_productoDetails = ll.findViewById(R.id.id_productoDetails)
+        this.nombreProductoDetail = ll.findViewById(R.id.nombreProductoDetail)
+        this.tipoProductoDetail = ll.findViewById(R.id.tipoProductoDetail)
+        this.precioProductDetails = ll.findViewById(R.id.precioProductoDetail)
+        this.imagenProductDetail = ll.findViewById(R.id.imagenProductoDetail)
+        this.cantidadDisponibleDetails = ll.findViewById(R.id.cantidadDisponibleDetails)
+        return ll
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ProductoDetalleFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ProductoDetalleFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        this.tbProductDets.navigationIcon = ContextCompat.getDrawable(view.context, R.drawable.close)
+        this.tbProductDets.setNavigationOnClickListener{
+            dismiss()
+        }
+
+        val product = JSONObject(arguments?.getString("product"))
+
+        this.tbProductDets.title = product.getString("nombre")
+        this.id_productoDetails.text = product.getString("id")
+        this.nombreProductoDetail.text = product.getString("nombre")
+        this.tipoProductoDetail.text = product.getString("tipo")
+        this.precioProductDetails.text = product.getString("precio")
+        this.cantidadDisponibleDetails.text = product.getString("cantidad_disponible")
+
+        Glide.with(this)
+            .load(product.getString("imagen"))
+            .into(this.imagenProductDetail)
+                                                                                                 }
+
+    override fun onStart() {
+        super.onStart()
+        dialog?.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
     }
+
 }

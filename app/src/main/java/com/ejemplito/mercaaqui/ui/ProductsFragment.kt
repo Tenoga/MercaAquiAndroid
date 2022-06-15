@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.RelativeLayout
+import androidx.core.os.bundleOf
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
@@ -33,7 +35,7 @@ class ProductsFragment : Fragment(), ItemListener {
         Log.d("ProductsFragment", "Entered to onCreateView")
         // Inflate the layout for this fragment
         val ll = inflater.inflate(R.layout.fragment_products, container, false)
-        val url = "http://10.190.80.196/MercaAqui/app/Http/ListaProductosAll.php"
+        val url = "http://192.168.219.17/MercaAqui/app/Http/ListaProductosAll.php"
         val queue = Volley.newRequestQueue(this.context)
 
         val stringRequest = StringRequest(Request.Method.GET, url, { response ->
@@ -65,16 +67,12 @@ class ProductsFragment : Fragment(), ItemListener {
         return ll
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        /*Log.d("ProductFragment", this.productsList.toString())
-        recycler.adapter = ProductAdapter(this.productsList, this)
-        viewAlpha.visibility = View.INVISIBLE
-        pgbar.visibility = View.INVISIBLE*/
-    }
-
     override fun onItemClicked(product: JSONObject, position: Int) {
-        TODO("Not yet implemented")
+        val bundle = bundleOf("product" to product.toString())
+        findNavController().navigate(
+            R.id.fragment_product_details,
+            bundle
+        )
     }
 
 }

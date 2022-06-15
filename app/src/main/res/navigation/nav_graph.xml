@@ -23,6 +23,9 @@
         <action
             android:id="@+id/action_nProducts_to_vendedoresFragment"
             app:destination="@id/nVendedores" />
+        <action
+            android:id="@+id/action_nProducts_to_fragment_speaker_info"
+            app:destination="@id/fragment_product_details" />
     </fragment>
     <fragment
         android:id="@+id/nVendedores"
@@ -32,11 +35,26 @@
         <action
             android:id="@+id/action_nVendedores_to_ventasFragment"
             app:destination="@id/nVentas" />
+        <action
+            android:id="@+id/action_nVendedores_to_fragment_vendedor_details"
+            app:destination="@id/fragment_vendedor_details" />
     </fragment>
     <fragment
         android:id="@+id/nVentas"
         android:name="com.ejemplito.mercaaqui.ui.VentasFragment"
         android:label="fragment_ventas"
         tools:layout="@layout/fragment_ventas" />
+
+    <dialog
+        android:id="@+id/fragment_product_details"
+        android:name="com.ejemplito.mercaaqui.ui.ProductoDetalleFragment"
+        android:label="fragment_speaker_info"
+        tools:layout="@layout/fragment_producto_detalle" />
+    <dialog
+        android:id="@+id/fragment_vendedor_details"
+        android:name="com.ejemplito.mercaaqui.ui.ProductoDetalleFragment"
+        android:label="fragment_speaker_info"
+        tools:layout="@layout/fragment_vendedor_detalle" />
+
 
 </navigation>
