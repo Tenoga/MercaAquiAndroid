@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.RelativeLayout
+import androidx.core.os.bundleOf
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
@@ -33,7 +35,7 @@ class VendedoresFragment : Fragment(), ItemListener {
         Log.d("VendedoresFragment", "Entered to onCreateView")
         // Inflate the layout for this fragment
         val ll = inflater.inflate(R.layout.fragment_vendedores, container, false)
-        val url = "http://192.168.96.16/MercaAqui/app/Http/ListaVendedoresAll.php"
+        val url = "http://192.168.219.17/MercaAqui/app/Http/ListaVendedoresAll.php"
         val queue = Volley.newRequestQueue(this.context)
 
         val stringRequest = StringRequest(Request.Method.GET, url, { response ->
@@ -65,8 +67,12 @@ class VendedoresFragment : Fragment(), ItemListener {
         return ll
     }
 
-    override fun onItemClicked(product: JSONObject, position: Int) {
-        TODO("Not yet implemented")
+    override fun onItemClicked(vendedor: JSONObject, position: Int) {
+        val bundle = bundleOf("vendedor" to vendedor.toString())
+        findNavController().navigate(
+            R.id.fragment_vendedor_details,
+            bundle
+        )
     }
 
 }

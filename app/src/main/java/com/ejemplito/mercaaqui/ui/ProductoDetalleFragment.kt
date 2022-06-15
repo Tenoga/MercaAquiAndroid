@@ -36,7 +36,6 @@ class ProductoDetalleFragment : DialogFragment() {
         val ll = inflater.inflate(R.layout.fragment_producto_detalle, container, false)
         this.tbProductDets = ll.findViewById(R.id.tbProductDets)
 
-
         this.id_productoDetails = ll.findViewById(R.id.id_productoDetails)
         this.nombreProductoDetail = ll.findViewById(R.id.nombreProductoDetail)
         this.tipoProductoDetail = ll.findViewById(R.id.tipoProductoDetail)

@@ -30,6 +30,10 @@
     <string name="precio">Precio:</string>
     <string name="tipo">Tipo:</string>
     <string name="nombre_del_producto">Nombre del Producto:</string>
+    <string name="_1">1</string>
+    <string name="correo">Correo:</string>
+    <string name="celular">Celular:</string>
+    <string name="fecha_de_nacimiento">Fecha de Nacimiento:</string>
 
 
 </resources>

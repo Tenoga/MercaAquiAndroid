@@ -40,14 +40,14 @@
                 android:layout_marginTop="@dimen/margin_10"
                 android:orientation="horizontal">
                 <TextView
-                    android:id="@+id/nombreVendedor"
+                    android:id="@+id/nombreVendedorDetail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
                     android:text="@string/nombre_vendedor"
                     android:textSize="15sp"/>
                 <TextView
-                    android:id="@+id/apellidoVendedor"
+                    android:id="@+id/apellidoVendedorDetail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
@@ -80,12 +80,12 @@
                 android:textSize="15sp"
                 android:textStyle="bold"/>
             <TextView
-                android:id="@+id/id_vendedor"
+                android:id="@+id/id_vendedorDetail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/tiny_padding"
-                android:text="1"
-                android:textSize="15dp"
+                android:layout_marginStart="@dimen/tiny_padding"
+                android:text="@string/_1"
+                android:textSize="@dimen/text_15"
                 android:textStyle="bold"
                 android:textColor="@color/gray"
                 />
@@ -108,14 +108,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/gray"
-                android:text="Correo:"
+                android:text="@string/correo"
                 android:textStyle="bold"/>
             <TextView
-                android:id="@+id/correoVendedor"
+                android:id="@+id/correoVendedorDetail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/margin_10"
-                android:layout_marginLeft="@dimen/margin_10"
+                android:layout_marginStart="@dimen/margin_10"
                 android:text="@string/correo_vendedor"
                 android:textSize="15sp"/>
 
@@ -123,32 +123,32 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Celular: "
+                android:text="@string/celular"
                 android:textColor="@color/gray"
                 android:textStyle="bold"/>
             <TextView
-                android:id="@+id/celularVendedor"
+                android:id="@+id/celularVendedorDetail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/margin_10"
-                android:layout_marginLeft="@dimen/margin_10"
+                android:layout_marginStart="@dimen/margin_10"
                 android:text="@string/telefono_vendedor"
                 android:textSize="15sp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Fecha de Nacimiento: "
+                android:text="@string/fecha_de_nacimiento"
                 android:textColor="@color/gray"
                 android:textStyle="bold"/>
             <TextView
-                android:id="@+id/nacimientoVendedor"
+                android:id="@+id/nacimientoVendedorDetail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/margin_10"
-                android:layout_marginLeft="@dimen/margin_10"
+                android:layout_marginStart="@dimen/margin_10"
                 android:text="@string/fecha_venta"
-                android:textSize="15sp"/>
+                android:textSize="@dimen/text_15"/>
         </LinearLayout>
 
 

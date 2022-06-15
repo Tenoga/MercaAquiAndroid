@@ -12,4 +12,5 @@
     <dimen name="margin_50">50dp</dimen>
     <dimen name="margin_45">45dp</dimen>
     <dimen name="margin_40">40dp</dimen>
+    <dimen name="text_15">15sp</dimen>
 </resources>
