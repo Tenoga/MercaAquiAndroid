@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.ImageView
+import android.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.DialogFragment
 import com.bumptech.glide.Glide
@@ -14,8 +15,9 @@ import com.ejemplito.mercaaqui.R
 import org.json.JSONObject
 
 
-class VentaDetalleFragment : Fragment() {
+class VentaDetalleFragment : DialogFragment() {
 
+    private lateinit var tbVentaDets: Toolbar
     private lateinit var idFactura: TextView
     private lateinit var fechaVenta: TextView
     private lateinit var nombreUsuario: TextView
@@ -31,8 +33,7 @@ class VentaDetalleFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        }
+        setStyle(STYLE_NORMAL, R.style.FullScreenDialogStyle)
     }
 
     override fun onCreateView(
@@ -60,14 +61,14 @@ class VentaDetalleFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        this.tbProductDets.navigationIcon = ContextCompat.getDrawable(view.context, R.drawable.close)
-        this.tbProductDets.setNavigationOnClickListener{
+        this.tbVentaDets.navigationIcon = ContextCompat.getDrawable(view.context, R.drawable.close)
+        this.tbVentaDets.setNavigationOnClickListener{
             dismiss()
     }
 
     val product = JSONObject(arguments?.getString("product"))
 
-        this.tbProductDets.title = product.getString("nombre")
+        this.tbVentaDets.title = product.getString("nombre")
         this.id_productoDetails.text = product.getString("id")
         this.nombreProductoDetail.text = product.getString("nombre")
         this.tipoProductoDetail.text = product.getString("tipo")
