@@ -23,6 +23,7 @@ class VentaDetalleFragment : DialogFragment(),  ItemListener{
     private lateinit var recycler: RecyclerView
     private lateinit var viewAlpha:View
     private lateinit var pgbar: ProgressBar
+    private lateinit var rlProductsList: RelativeLayout
     private lateinit var idFactura: TextView
     private lateinit var fechaVenta: TextView
     private lateinit var nombreUsuario: TextView
@@ -43,13 +44,15 @@ class VentaDetalleFragment : DialogFragment(),  ItemListener{
         // Inflate the layout for this fragment
         val ll = inflater.inflate(R.layout.fragment_venta_detalle, container, false)
 
+        this.tbVentaDets = ll.findViewById(R.id.tbVentaDets)
         this.idFactura = ll.findViewById(R.id.idFactura)
         this.fechaVenta = ll.findViewById(R.id.fechaVenta)
         this.nombreUsuario = ll.findViewById(R.id.nombreUsuario)
         this.idVendedor = ll.findViewById(R.id.idVendedor)
-        this.recycler = ll.findViewById(R.id.products_recycler)
-        this.viewAlpha = ll.findViewById(R.id.view_productsList)
-        this.pgbar = ll.findViewById(R.id.pgbar_productsList)
+        this.recycler = ll.findViewById(R.id.productsVentas_recycler)
+        this.viewAlpha = ll.findViewById(R.id.view_productsVentasList)
+        this.pgbar = ll.findViewById(R.id.pgbar_productsVentasList)
+        this.rlProductsList = ll.findViewById(R.id.rl_ProductsVentasList)
         return ll
 
     }
@@ -63,13 +66,14 @@ class VentaDetalleFragment : DialogFragment(),  ItemListener{
 
     val venta = JSONObject(arguments?.getString("venta"))
 
-        this.tbVentaDets.title = venta.getString("nombre")
+        this.tbVentaDets.title = venta.getString("nombre_cliente")
         this.idFactura.text = venta.getString("id")
         this.fechaVenta.text = venta.getString("fecha_venta")
         this.nombreUsuario.text = venta.getString("nombre_cliente")
         this.idVendedor.text = venta.getString("vendedor_id")
 
         val productos = JSONArray(venta.getString("producto"))
+        this.productsList = ArrayList()
 
         var i = 0
         val l = productos.length()

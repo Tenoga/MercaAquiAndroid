@@ -34,6 +34,16 @@
     <string name="correo">Correo:</string>
     <string name="celular">Celular:</string>
     <string name="fecha_de_nacimiento">Fecha de Nacimiento:</string>
+    <string name="detalle_venta">Detalle Venta</string>
+    <string name="id_factura">ID Factura:</string>
+    <string name="mayo_5_2022_10_39">Mayo 5 2022, 10:39</string>
+    <string name="para">Para:</string>
+    <string name="orlando_rivera">Orlando Rivera</string>
+    <string name="id_vendedor">ID Vendedor:</string>
+    <string name="_11">11</string>
+    <string name="productos">Productos</string>
+    <string name="total">Total:</string>
+    <string name="_40000">40000</string>
 
 
 </resources>
