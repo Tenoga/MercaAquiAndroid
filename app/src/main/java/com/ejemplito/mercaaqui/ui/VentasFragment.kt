@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.RelativeLayout
+import androidx.core.os.bundleOf
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
@@ -66,8 +68,12 @@ class VentasFragment : Fragment(), ItemListener {
         return ll
     }
 
-    override fun onItemClicked(product: JSONObject, position: Int) {
-        TODO("Not yet implemented")
+    override fun onItemClicked(venta: JSONObject, position: Int) {
+        val bundle = bundleOf("venta" to venta.toString())
+        findNavController().navigate(
+            R.id.fragment_venta_details,
+            bundle
+        )
     }
 
 

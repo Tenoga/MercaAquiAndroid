@@ -77,7 +77,7 @@
                             android:layout_weight="5"
                             android:gravity="right"
                             android:layout_gravity="right"
-                            android:text="x"
+                            android:text=""
                             android:textSize="13sp" />
                         <TextView
                             android:id="@+id/cantidadProducto"
@@ -85,7 +85,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="3dp"
                             android:layout_weight="1"
-                            android:text="500"
+                            android:text=""
                             android:textSize="13sp"/>
                     </LinearLayout>
 

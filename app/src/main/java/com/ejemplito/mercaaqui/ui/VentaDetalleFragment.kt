@@ -5,29 +5,35 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import android.widget.ImageView
+import android.widget.Toolbar
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.DialogFragment
+import com.bumptech.glide.Glide
 import com.ejemplito.mercaaqui.R
+import org.json.JSONObject
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [VentaDetalleFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class VentaDetalleFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class VentaDetalleFragment : DialogFragment() {
+
+    private lateinit var tbVentaDets: Toolbar
+    private lateinit var idFactura: TextView
+    private lateinit var fechaVenta: TextView
+    private lateinit var nombreUsuario: TextView
+    private lateinit var nombreVendedor: TextView
+    private lateinit var idVendedor: TextView
+    private lateinit var telefonoVendedor: TextView
+    private lateinit var imagenProducto: ImageView
+    private lateinit var nombreProducto: TextView
+    private lateinit var tipoProducto: TextView
+    private lateinit var cantidadProducto: TextView
+    private lateinit var precioProducto: TextView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+        setStyle(STYLE_NORMAL, R.style.FullScreenDialogStyle)
     }
 
     override fun onCreateView(
@@ -35,26 +41,55 @@ class VentaDetalleFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_venta_detalle, container, false)
+        val ll = inflater.inflate(R.layout.fragment_venta_detalle, container, false)
+
+        this.idFactura = ll.findViewById(R.id.idFactura)
+        this.fechaVenta = ll.findViewById(R.id.fechaVenta)
+        this.nombreUsuario = ll.findViewById(R.id.nombreUsuario)
+        this.nombreVendedor = ll.findViewById(R.id.nombreVendedor)
+        this.idVendedor = ll.findViewById(R.id.idVendedor)
+        this.telefonoVendedor = ll.findViewById(R.id.telefonoVendedor)
+        this.imagenProducto = ll.findViewById(R.id.imagenProducto)
+        this.nombreProducto = ll.findViewById(R.id.nombreProducto)
+        this.tipoProducto = ll.findViewById(R.id.tipoProducto)
+        this.cantidadProducto = ll.findViewById(R.id.cantidadProducto)
+        this.precioProducto = ll.findViewById(R.id.precioProducto)
+
+        return ll
+
+    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        this.tbVentaDets.navigationIcon = ContextCompat.getDrawable(view.context, R.drawable.close)
+        this.tbVentaDets.setNavigationOnClickListener{
+            dismiss()
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment VentaDetalleFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            VentaDetalleFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    val venta = JSONObject(arguments?.getString("venta"))
+
+        this.tbVentaDets.title = venta.getString("nombre")
+        this.idFactura.text = venta.getString("id")
+        this.fechaVenta.text = venta.getString("fecha_venta")
+        this.nombreUsuario.text = venta.getString("nombre")
+        this.nombreVendedor.text = venta.getString("nombre")
+        this.idVendedor.text = venta.getString("id")
+        this.telefonoVendedor.text = venta.getString("celular")
+        this.nombreProducto.text = venta.getString("nombre")
+        this.tipoProducto.text = venta.getString("tipo")
+        this.cantidadProducto.text = venta.getString("cantidad")
+        this.precioProducto.text = venta.getString("cantidad_disponible")
+
+        Glide.with(this)
+            .load(product.getString("imagen"))
+            .into(this.imagenProductDetail)
     }
+
+
+    override fun onStart() {
+        super.onStart()
+        dialog?.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+}
+
+
 }
