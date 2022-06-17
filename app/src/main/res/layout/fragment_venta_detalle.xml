@@ -115,22 +115,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:text="Vendedor: "/>
-                <TextView
-                    android:id="@+id/nombreVendedor"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_10"
-                    android:text="David Felipe Castro Herrera"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textStyle="bold"
                     android:text="ID Vendedor: "/>
                 <TextView
                     android:id="@+id/idVendedor"
@@ -139,22 +123,7 @@
                     android:layout_marginStart="@dimen/margin_10"
                     android:text="11"/>
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:text="Telefono del Vendedor: "/>
-                <TextView
-                    android:id="@+id/telefonoVendedor"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_10"
-                    android:text="315254875"/>
-            </LinearLayout>
+
         </LinearLayout>
 
         <LinearLayout
@@ -177,6 +146,33 @@
                 android:textSize="@dimen/margin_20"
                 android:text="Productos"/>
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_20"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:text="Total: "/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_10"
+                android:text="@string/signo_pesos"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/totalVenta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="40000"/>
+        </LinearLayout>
+
     <fragment
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -184,6 +180,7 @@
         tools:layout="@layout/fragment_products">
 
     </fragment>
+
     </LinearLayout>
 
 
