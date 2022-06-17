@@ -5,30 +5,30 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import android.widget.ImageView
-import android.widget.Toolbar
+import android.widget.*
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.DialogFragment
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.ejemplito.mercaaqui.R
+import com.ejemplito.mercaaqui.adapter.ItemListener
+import com.ejemplito.mercaaqui.adapter.ProductAdapter
+import org.json.JSONArray
 import org.json.JSONObject
 
 
-class VentaDetalleFragment : DialogFragment() {
+class VentaDetalleFragment : DialogFragment(),  ItemListener{
 
     private lateinit var tbVentaDets: Toolbar
+    private lateinit var recycler: RecyclerView
+    private lateinit var viewAlpha:View
+    private lateinit var pgbar: ProgressBar
     private lateinit var idFactura: TextView
     private lateinit var fechaVenta: TextView
     private lateinit var nombreUsuario: TextView
-    private lateinit var nombreVendedor: TextView
     private lateinit var idVendedor: TextView
-    private lateinit var telefonoVendedor: TextView
-    private lateinit var imagenProducto: ImageView
-    private lateinit var nombreProducto: TextView
-    private lateinit var tipoProducto: TextView
-    private lateinit var cantidadProducto: TextView
-    private lateinit var precioProducto: TextView
+    private lateinit var productsList: ArrayList<JSONObject>
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,15 +46,10 @@ class VentaDetalleFragment : DialogFragment() {
         this.idFactura = ll.findViewById(R.id.idFactura)
         this.fechaVenta = ll.findViewById(R.id.fechaVenta)
         this.nombreUsuario = ll.findViewById(R.id.nombreUsuario)
-        this.nombreVendedor = ll.findViewById(R.id.nombreVendedor)
         this.idVendedor = ll.findViewById(R.id.idVendedor)
-        this.telefonoVendedor = ll.findViewById(R.id.telefonoVendedor)
-        this.imagenProducto = ll.findViewById(R.id.imagenProducto)
-        this.nombreProducto = ll.findViewById(R.id.nombreProducto)
-        this.tipoProducto = ll.findViewById(R.id.tipoProducto)
-        this.cantidadProducto = ll.findViewById(R.id.cantidadProducto)
-        this.precioProducto = ll.findViewById(R.id.precioProducto)
-
+        this.recycler = ll.findViewById(R.id.products_recycler)
+        this.viewAlpha = ll.findViewById(R.id.view_productsList)
+        this.pgbar = ll.findViewById(R.id.pgbar_productsList)
         return ll
 
     }
@@ -71,18 +66,22 @@ class VentaDetalleFragment : DialogFragment() {
         this.tbVentaDets.title = venta.getString("nombre")
         this.idFactura.text = venta.getString("id")
         this.fechaVenta.text = venta.getString("fecha_venta")
-        this.nombreUsuario.text = venta.getString("nombre")
-        this.nombreVendedor.text = venta.getString("nombre")
-        this.idVendedor.text = venta.getString("id")
-        this.telefonoVendedor.text = venta.getString("celular")
-        this.nombreProducto.text = venta.getString("nombre")
-        this.tipoProducto.text = venta.getString("tipo")
-        this.cantidadProducto.text = venta.getString("cantidad")
-        this.precioProducto.text = venta.getString("cantidad_disponible")
+        this.nombreUsuario.text = venta.getString("nombre_cliente")
+        this.idVendedor.text = venta.getString("vendedor_id")
 
-        Glide.with(this)
-            .load(product.getString("imagen"))
-            .into(this.imagenProductDetail)
+        val productos = JSONArray(venta.getString("producto"))
+
+        var i = 0
+        val l = productos.length()
+        while (i < l) {
+            this.productsList.add(productos[i] as JSONObject)
+            i++
+        }
+
+        this.recycler.adapter = ProductAdapter(productsList, this)
+        this.viewAlpha.visibility = View.INVISIBLE
+        this.pgbar.visibility = View.INVISIBLE
+
     }
 
 
@@ -90,6 +89,10 @@ class VentaDetalleFragment : DialogFragment() {
         super.onStart()
         dialog?.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
 }
+
+    override fun onItemClicked(product: JSONObject, position: Int) {
+        TODO("Not yet implemented")
+    }
 
 
 }
