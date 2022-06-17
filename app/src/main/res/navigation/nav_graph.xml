@@ -43,7 +43,11 @@
         android:id="@+id/nVentas"
         android:name="com.ejemplito.mercaaqui.ui.VentasFragment"
         android:label="fragment_ventas"
-        tools:layout="@layout/fragment_ventas" />
+        tools:layout="@layout/fragment_ventas" >
+        <action
+            android:id="@+id/action_nVentas_to_ventaDetalleFragment"
+            app:destination="@id/fragment_venta_details" />
+    </fragment>
 
     <dialog
         android:id="@+id/fragment_product_details"
@@ -55,6 +59,10 @@
         android:name="com.ejemplito.mercaaqui.ui.ProductoDetalleFragment"
         android:label="fragment_speaker_info"
         tools:layout="@layout/fragment_vendedor_detalle" />
+    <dialog
+        android:id="@+id/fragment_venta_details"
+        android:name="com.ejemplito.mercaaqui.ui.VentaDetalleFragment"
+        android:label="VentaDetalleFragment" />
 
 
 </navigation>

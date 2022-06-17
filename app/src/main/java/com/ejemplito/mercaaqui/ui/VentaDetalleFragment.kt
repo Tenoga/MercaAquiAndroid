@@ -66,14 +66,19 @@ class VentaDetalleFragment : DialogFragment() {
             dismiss()
     }
 
-    val product = JSONObject(arguments?.getString("product"))
+    val venta = JSONObject(arguments?.getString("venta"))
 
-        this.tbVentaDets.title = product.getString("nombre")
-        this.id_productoDetails.text = product.getString("id")
-        this.nombreProductoDetail.text = product.getString("nombre")
-        this.tipoProductoDetail.text = product.getString("tipo")
-        this.precioProductDetails.text = product.getString("precio")
-        this.cantidadDisponibleDetails.text = product.getString("cantidad_disponible")
+        this.tbVentaDets.title = venta.getString("nombre")
+        this.idFactura.text = venta.getString("id")
+        this.fechaVenta.text = venta.getString("nombre")
+        this.nombreUsuario.text = venta.getString("tipo")
+        this.nombreVendedor.text = venta.getString("precio")
+        this.idVendedor.text = venta.getString("cantidad_disponible")
+        this.telefonoVendedor.text = venta.getString("cantidad_disponible")
+        this.nombreProducto.text = venta.getString("cantidad_disponible")
+        this.tipoProducto.text = venta.getString("cantidad_disponible")
+        this.cantidadProducto.text = venta.getString("cantidad_disponible")
+        this.precioProducto.text = venta.getString("cantidad_disponible")
 
         Glide.with(this)
             .load(product.getString("imagen"))
