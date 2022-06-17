@@ -35,10 +35,11 @@ class VendedoresFragment : Fragment(), ItemListener {
         Log.d("VendedoresFragment", "Entered to onCreateView")
         // Inflate the layout for this fragment
         val ll = inflater.inflate(R.layout.fragment_vendedores, container, false)
-        val url = "http://192.168.219.17/MercaAqui/app/Http/ListaVendedoresAll.php"
+        val url = "https://mercaaqui.ml/getUsers"
         val queue = Volley.newRequestQueue(this.context)
 
         val stringRequest = StringRequest(Request.Method.GET, url, { response ->
+            Log.d("VendedoresFragment", response)
             val jsonArray = JSONArray(response)
             this.vendedoresList = ArrayList()
             try {

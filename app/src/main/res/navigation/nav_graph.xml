@@ -52,7 +52,7 @@
         tools:layout="@layout/fragment_producto_detalle" />
     <dialog
         android:id="@+id/fragment_vendedor_details"
-        android:name="com.ejemplito.mercaaqui.ui.ProductoDetalleFragment"
+        android:name="com.ejemplito.mercaaqui.ui.VendedorDetalleFragment"
         android:label="fragment_speaker_info"
         tools:layout="@layout/fragment_vendedor_detalle" />
 
