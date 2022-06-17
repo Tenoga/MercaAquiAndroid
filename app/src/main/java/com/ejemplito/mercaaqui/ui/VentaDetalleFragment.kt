@@ -1,6 +1,7 @@
 package com.ejemplito.mercaaqui.ui
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,7 @@ import com.ejemplito.mercaaqui.R
 import com.ejemplito.mercaaqui.adapter.ItemListener
 import com.ejemplito.mercaaqui.adapter.ProductAdapter
 import org.json.JSONArray
+import org.json.JSONException
 import org.json.JSONObject
 
 
@@ -95,7 +97,11 @@ class VentaDetalleFragment : DialogFragment(),  ItemListener{
 }
 
     override fun onItemClicked(product: JSONObject, position: Int) {
-        TODO("Not yet implemented")
+        try {
+            //TODO("Not yet implemented")
+        } catch (e: NotImplementedError) {
+            Log.d("VentaDetalleFragment", "Not yet implemented")
+        }
     }
 
 
