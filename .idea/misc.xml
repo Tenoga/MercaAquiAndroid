@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/SENA/MercaAquiAndroid/app/src/main/res/layout/activity_main.xml" value="0.17708333333333334" />
+        <entry key="..\:/SENA/MercaAquiAndroid/app/src/main/res/layout/fragment_ventas.xml" value="0.17708333333333334" />
         <entry key="..\:/Users/Pipe/AndroidStudioProjects/MercaAqui/app/src/main/res/drawable/shape_vendedor.xml" value="0.3675" />
         <entry key="..\:/Users/Pipe/AndroidStudioProjects/MercaAqui/app/src/main/res/drawable/shape_vendedor2.xml" value="0.3665" />
         <entry key="..\:/Users/Pipe/AndroidStudioProjects/MercaAqui/app/src/main/res/drawable/shape_vendedor3.xml" value="0.3665" />
