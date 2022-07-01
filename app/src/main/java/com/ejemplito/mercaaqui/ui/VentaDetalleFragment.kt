@@ -30,6 +30,7 @@ class VentaDetalleFragment : DialogFragment(),  ItemListener{
     private lateinit var fechaVenta: TextView
     private lateinit var nombreUsuario: TextView
     private lateinit var idVendedor: TextView
+    private lateinit var totalVenta: TextView
     private lateinit var productsList: ArrayList<JSONObject>
 
 
@@ -51,6 +52,7 @@ class VentaDetalleFragment : DialogFragment(),  ItemListener{
         this.fechaVenta = ll.findViewById(R.id.fechaVenta)
         this.nombreUsuario = ll.findViewById(R.id.nombreUsuario)
         this.idVendedor = ll.findViewById(R.id.idVendedor)
+        this.totalVenta = ll.findViewById(R.id.totalVenta)
         this.recycler = ll.findViewById(R.id.productsVentas_recycler)
         this.viewAlpha = ll.findViewById(R.id.view_productsVentasList)
         this.pgbar = ll.findViewById(R.id.pgbar_productsVentasList)
@@ -73,6 +75,7 @@ class VentaDetalleFragment : DialogFragment(),  ItemListener{
         this.fechaVenta.text = venta.getString("fecha_venta")
         this.nombreUsuario.text = venta.getString("nombre_cliente")
         this.idVendedor.text = venta.getString("vendedor_id")
+        this.totalVenta.text = venta.getString("total")
 
         val productos = JSONArray(venta.getString("producto"))
         this.productsList = ArrayList()

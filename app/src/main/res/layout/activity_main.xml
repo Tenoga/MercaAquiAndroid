@@ -68,6 +68,9 @@
             android:layout_alignParentBottom="true"
             android:layout_gravity="bottom"
             app:itemIconSize="@dimen/margin_20"
+            app:itemIconTint="@color/naranja"
+            app:itemTextColor="@color/naranja"
+            android:background="@color/azulO"
             app:menu="@menu/bn_menu"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
